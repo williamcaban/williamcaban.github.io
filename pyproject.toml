@@ -1,0 +1,11 @@
+[project]
+name = "daily-reporter"
+version = "0.1.0"
+description = "Top news, papers and analysis from the last 24hrs on AI safety and AI evaluation"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "markdown>=3.10.2",
+    "python-dotenv>=1.2.2",
+    "requests>=2.34.2",
+]
