@@ -1,4 +1,8 @@
-# Daily AI Analysis Report - July 6, 2026
+---
+title: "Daily AI Analysis — July 6, 2026"
+description: "Deep dive on Iterative VibeCoding: gradual distributed attacks by coding agents and the stateful monitoring needed to catch them."
+tags: [ai-safety, ai-evaluation, guardrails, research]
+---
 
 ## [Top AI News]
 *No major breaking news detected in the high-frequency enterprise cycle today; focus remains on academic shifts and emerging vulnerability vectors.*

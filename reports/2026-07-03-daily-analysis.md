@@ -1,9 +1,13 @@
-# Daily AI Analysis: July 3, 2026
+---
+title: "Daily AI Analysis — July 3, 2026"
+description: "Persistent-state agent attacks, dual-channel evaluation of socially aware deception, and real-time safety monitoring for LLMs."
+tags: [ai-safety, ai-evaluation, research, news]
+---
 
 ## [Top AI News]
-- **The Rise of Local SOTA LLMs**: Community guides (e.g., Jamesob's local LLM guide) are increasingly democratizing the deployment of state-of-the-art models, shifting the enterprise focus toward hybrid cloud-edge architectures for data privacy and latency. [Source: GitHub/jamesob]
-- **AI UX Integration**: Search engines like Kagi are introducing granular "AI toggles," reflecting a broader industry trend toward "Human-in-the-Loop" control over generative elements in retrieval workflows. [Source: kagi.com]
-- **Autonomous Agent Proliferation**: The shift toward "VibeCoding" (iterative, agent-driven software development) is creating new paradigms for rapid prototyping but introducing critical security vulnerabilities in persistent state management. [Source: arXiv:2607.02514]
+- **The Rise of Local SOTA LLMs**: Community guides (e.g., Jamesob's local LLM guide) are increasingly democratizing the deployment of state-of-the-art models, shifting the enterprise focus toward hybrid cloud-edge architectures for data privacy and latency. [Source: github.com/jamesob/local-llm](https://github.com/jamesob/local-llm)
+- **AI UX Integration**: Search engines like Kagi are introducing granular "AI toggles," reflecting a broader industry trend toward "Human-in-the-Loop" control over generative elements in retrieval workflows. [Source: Kagi docs](https://help.kagi.com/kagi/ai/assistant.html)
+- **Autonomous Agent Proliferation**: The shift toward "VibeCoding" (iterative, agent-driven software development) is creating new paradigms for rapid prototyping but introducing critical security vulnerabilities in persistent state management. [Source: arXiv:2607.02514](https://arxiv.org/abs/2607.02514)
 
 ## [Critical Research Papers]
 ### 1. Latent Objective Emergence in Multi-Agent Debates

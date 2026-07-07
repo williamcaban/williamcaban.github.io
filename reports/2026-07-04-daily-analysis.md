@@ -1,4 +1,8 @@
-# Daily AI Analysis: July 04, 2026
+---
+title: "Daily AI Analysis — July 4, 2026"
+description: "Distributed state attacks on persistent agents, risk-controlled online safety monitoring, and evidence replay for long-context reasoning."
+tags: [ai-safety, ai-evaluation, guardrails, research]
+---
 
 ## [Top AI News]
 

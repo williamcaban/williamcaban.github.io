@@ -1,14 +1,18 @@
-# Daily AI Analysis: 2026-07-05
+---
+title: "Daily AI Analysis — July 5, 2026"
+description: "Alibaba bans Claude Code internally, Zuckerberg admits slower-than-hoped agent progress, and Midjourney demands Hollywood disclose its AI use."
+tags: [ai-safety, geopolitics, news, research]
+---
 
 ## [Top AI News]
 - **Alibaba Bans Claude Code**: Alibaba has reportedly prohibited its employees from using Claude Code, signaling a tightening of internal governance over third-party AI coding assistants in large-scale enterprise environments. This highlights the ongoing tension between developer productivity and IP security/leakage risks.
   - [Source: TechCrunch](https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/)
 - **Meta CEO on AI Agent Stagnation**: Mark Zuckerberg recently admitted to staff that AI agents have not progressed as rapidly as anticipated. This "reality check" suggests that the jump from chat-based LLMs to autonomous, goal-oriented agents is facing structural bottlenecks in reliability and long-term planning.
-  - [Source: TechCrunch](https://techcrunch.com/2026/07/04/mark-zuckerberg-ai-agents-progress/)
+  - [Source: TechCrunch](https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/)
 - **Midjourney vs. Hollywood**: Midjourney is pushing for Hollywood studios to disclose the specifics of their AI integration. This move underscores the escalating conflict over training data attribution and the legal framework for "AI-augmented" creative works.
-  - [Source: TechCrunch](https://techcrunch.com/2026/07/04/midjourney-hollywood-ai-usage/)
+  - [Source: TechCrunch](https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/)
 - **Google's AI Narratives**: A new Google commercial depicting the Declaration of Independence written by AI continues the trend of "success theater" in consumer-facing AI marketing, often obscuring the gap between curated demos and production-grade reliability.
-  - [Source: TechCrunch](https://techcrunch.com/2026/07/04/google-ai-declaration-independence/)
+  - [Source: TechCrunch](https://techcrunch.com/2026/07/04/new-google-commercial-imagines-a-declaration-of-independence-written-with-help-from-ai/)
 
 ## [Critical Research Papers]
 - **Distributed Attacks in Persistent-State AI Control** (arXiv:2607.02514)
