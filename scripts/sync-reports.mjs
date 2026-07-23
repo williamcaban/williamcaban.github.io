@@ -50,6 +50,12 @@ async function resolveDate(data, file, firstHeading) {
   return localYMD((await stat(path.join(SRC_DIR, file))).mtime);
 }
 
+// Loose comparison for "is this heading just the title again?" — case,
+// whitespace, and dash-style shouldn't cause a false negative.
+function normalizeHeading(s) {
+  return s.trim().toLowerCase().replace(/[–—]/g, '-').replace(/\s+/g, ' ');
+}
+
 function toSlug(file) {
   return file
     .replace(MARKDOWN_RE, '')
@@ -82,8 +88,15 @@ async function main() {
     const dateStr = await resolveDate(data, file, firstHeading);
     const title = data.title || firstHeading || `Daily AI Analysis — ${dateStr}`;
 
-    // Drop the H1 from the body when it becomes the title, so pages don't show it twice
-    if (!data.title && firstHeading) {
+    // Drop a leading H1 that just repeats the title, so the page (which
+    // renders post.data.title as its own <h1>) doesn't show it twice. This
+    // used to only fire when frontmatter had no title at all (i.e. title
+    // came *from* the H1) — but the daily-briefing report already writes an
+    // explicit frontmatter title AND, inconsistently, a matching H1 in the
+    // body, so that guard silently missed the common case. Comparing against
+    // the resolved title (whichever source it came from) instead of `data.title`
+    // presence catches both.
+    if (firstHeading && normalizeHeading(firstHeading) === normalizeHeading(title)) {
       content = content.replace(/^#\s+.+$/m, '').replace(/^\s+/, '');
     }
 
