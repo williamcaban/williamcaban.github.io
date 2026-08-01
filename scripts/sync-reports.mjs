@@ -98,6 +98,13 @@ async function main() {
     // presence catches both.
     if (firstHeading && normalizeHeading(firstHeading) === normalizeHeading(title)) {
       content = content.replace(/^#\s+.+$/m, '').replace(/^\s+/, '');
+      // A leading horizontal-rule divider (common right after an H1) is now
+      // the first line of `content`. matter.stringify() below re-parses
+      // `content` for an existing frontmatter block before prepending ours,
+      // and a lone leading "---" paired with any later "---" divider in the
+      // body gets misread as that block — feeding markdown prose to the YAML
+      // parser (e.g. "**Foo" reads as alias "*Foo" and throws). Strip it.
+      content = content.replace(/^-{3,}\s*\n+/, '');
     }
 
     // Normalize section markers like "[Top AI News]": strip the brackets from
