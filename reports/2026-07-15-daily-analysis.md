@@ -156,5 +156,3 @@ Today's research across multiple subfields converges on a single theme: **the ev
 The day's research presents a coherent picture: the tools we use to evaluate AI (LLM judges, final-answer benchmarks, turn-level safety tests) are all failing in ways that share a common structural cause — they evaluate at the wrong granularity. The responses are converging on architectural solutions: isolation boundaries for agent safety, operation-level probes for memory evaluation, reference-aware calibration for LLM judges, and minimum-viable execution for agent efficiency. The geopolitical developments — Hassabis's FINRA proposal, China's MIIT benchmark, DeepSeek's $70B valuation — all reflect a growing recognition that the reliability problem is not just technical but institutional, and that the governance structures around AI evaluation are as important as the evaluation methods themselves.
 
 ---
-
-*Report generated 2026-07-15. Sources verified via arXiv API and direct HTTP fetch.*

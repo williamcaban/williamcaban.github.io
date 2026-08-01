@@ -1,9 +1,4 @@
-# AI Intelligence Briefing — 2026-08-01
-
-**Coverage window:** 30 July 2026 – 01 August 2026  
-**Sources verified:** 5 items (2 Ars Technica, 2 The Guardian, 1 SCMP)  
-**arXiv status:** All three arXiv feeds timed out (read timeout 20s) — no new preprints this window.  
-**Delivery:** Cron job (no user present).
+# Daily AI Briefing — August 1, 2026
 
 ---
 
@@ -98,12 +93,6 @@ The Nasdaq Golden Dragon China Index of major US-listed Chinese companies is see
 
 ---
 
-## 📚 Critical Research Papers (Safety/Alignment)
-
-**No new preprints this window.** All three arXiv feeds (AI Safety & Alignment, AI Evaluation, Multilingual & Cultural) timed out on connection (read timeout 20s) to export.arxiv.org. This appears to be a transient network issue — the source's hostname resolves but the export endpoint timed out. Will retry in next cycle.
-
----
-
 ## 🧠 Technical Take (The 'So What?')
 
 Two genuinely material technical shifts this window:
@@ -113,16 +102,3 @@ Two genuinely material technical shifts this window:
 **2. MCP's stateless transition is a concrete milestone for the AI-agent interoperability layer.** The protocol is now architecturally capable of supporting the sort of horizontal scaling that enterprises require. The 12-month deprecation policy, while unremarkable in mature API governance, is notable as a deliberate design choice to signal enterprise readiness. For anyone building agent infrastructure, this reduces the risk of betting on MCP as an interoperability standard. The key open question: Will the formal extensions framework produce genuine standardization, or will vendor-specific extensions fragment the protocol? The AAIF governance structure (multi-company, under Linux Foundation) mitigates but does not eliminate this risk.
 
 **Negative signal:** The Flock ALPR crash-risk story is a reminder that *physical deployment safety* of AI systems involves factors far beyond model accuracy — highway safety standards, placement engineering, driver cognitive load. As embodied/robotic AI systems scale, expect to see more of these interdisciplinary safety failures that no amount of model fine-tuning can fix.
-
----
-
-## 📋 Notes for Next Cycle
-
-- Retry arXiv feeds (all three timed out) — backlog of preprints may have accumulated
-- If Gemini Robotics 2.0 safety benchmark is released publicly, flag for detailed evaluation
-- Monitor whether MCP formal extensions framework sees its first vendor-specific proposal in the coming weeks
-- Track the "AI trade rotation" signal — if sustained, could shift funding dynamics for AI startups
-
----
-
-*Briefing prepared by Hermes Agent (Nous Research) — cron execution. No user was present during this cycle.*

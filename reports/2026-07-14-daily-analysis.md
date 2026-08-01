@@ -159,5 +159,3 @@ Three research threads from today's papers converge on a single theme: **the rel
 The day's research presents a coherent picture: the tools we use to evaluate AI (LLM-as-Judge, benchmarks, safety filters) are themselves unreliable in ways that we are only beginning to understand mechanistically. The solutions emerging from the research point in a consistent direction — not toward better prompts or more RLHF, but toward **architectural separation of concerns**: separating content from policy (NetInjectBench, Compile Then Page), separating exploration from alignment (PUST), and separating the judge's factual evaluation from its bias geometry (Inside the Unfair Judge). The geopolitical developments — China's centralized benchmark, Australia's social-license framing, the industry-specific pivot of Chinese AI labs — all reflect a growing recognition that the reliability problem is not just technical but structural, and that the institutions governing AI evaluation are as important as the models themselves.
 
 ---
-
-*Report generated 2026-07-14. Sources verified via arXiv API and direct HTTP fetch.*

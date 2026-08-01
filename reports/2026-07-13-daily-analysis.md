@@ -100,5 +100,3 @@ Three developments from July 10 form a coherent picture of where the field is he
 The convergence: **efficient long-context architectures + transparent sovereign training + rigorous longitudinal evaluation** are the three legs of a credible alternative to the frontier-lab model of closed, opaque, short-context systems. July 10, 2026, provided evidence on all three fronts.
 
 ---
-
-*Report generated 2026-07-13. Sources verified via arXiv API and direct HTTP fetch.*

@@ -95,5 +95,3 @@ The CoreForge paper deserves a special mention as a model of honest research rep
 **Bottom line for the week:** The open-weight capability gap is closing faster than the safety community can produce effective mitigations, and the major institutional response (Pentagon, global businesses) is to accelerate adoption rather than slow it down. Evaluation research is responding with more rigorous, ecologically valid benchmarks — but the gap between evaluation methodology and deployment reality is widening, not narrowing.
 
 ---
-
-*Sources: All URLs verified during this run. arXiv papers accessed via arXiv API. News articles fetched via HTTP 200 check.*

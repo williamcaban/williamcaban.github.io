@@ -73,5 +73,3 @@ The day's two stories are connected by a deeper theme: **the gap between what AI
 **The connecting thread:** Both cases illustrate that evaluation and guardrail design must account for adversarial conditions. RadLE 2.0's methodology is one response — designing benchmarks that penalize the behaviors that cause harm, not just the ones that look bad on accuracy metrics. The smart glasses case demands a different response: independent verification of hardware privacy safeguards, not vendor self-certification. Both are reminders that the hard problem in AI safety is not building systems that can do things — it's building systems that know when they should not, and hardware that respects boundaries that cannot be technically enforced.
 
 ---
-
-*Sources: All URLs verified during this run. News articles fetched via HTTP 200 check.*

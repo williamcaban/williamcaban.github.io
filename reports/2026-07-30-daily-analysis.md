@@ -1,8 +1,4 @@
-# Daily AI Intelligence Briefing — 2026-07-30
-
-**Coverage window:** 2026-07-28 through 2026-07-30 UTC
-**Source count:** 20 verified items
-**Confidence rating:** High — all URLs verified via arXiv API or HTTP fetch
+# Daily AI Briefing — July 30, 2026
 
 ---
 
@@ -216,9 +212,3 @@ Three benchmarks in today's batch — SecRespond (post-compromise IR), APEX-Acco
 - "How accurate is the model?" → "What is the cost-accuracy trade-off for this task?"
 
 **For R&D planning:** The next generation of benchmark design should prioritize task realism and outcome measurement (did the job get done correctly?) over capability probing (does the model know this fact?).
-
----
-
-## 📁 File Saved
-
-Report written to: `/home/hermes/daily-reporter/reports/2026-07-30-daily-analysis.md`
