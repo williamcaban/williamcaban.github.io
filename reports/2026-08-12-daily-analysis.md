@@ -1,5 +1,3 @@
-File verified successfully at `/home/hermes/daily-reporter/reports/2026-08-12-daily-analysis.md` (28 lines, frontmatter and content intact).
-
 ---
 title: "Daily AI Briefing — August 12, 2026"
 description: "Evaluation-Conditioned Training proposes teaching models to generalize to oversight regimes stronger than the human feedback they were trained on"
