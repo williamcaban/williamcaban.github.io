@@ -132,6 +132,10 @@ const { Content } = await render(post);
   .pm-findings :global(.pm-box-tradeoff > strong:first-child) {
     color: #b45309;
   }
+  .pm-findings :global(.pm-box-summary) {
+    background-color: #f9fafb;
+    border-color: #e5e7eb;
+  }
 
   .pm-legend {
     margin-bottom: 2rem;
@@ -216,15 +220,21 @@ const { Content } = await render(post);
       }
     }
 
-    // Box the Threat model / Trade-offs paragraphs that follow, in the same
-    // light-bg + colored-border language as the badges above.
+    // Box the summary / Threat model / Trade-offs paragraphs that follow, in
+    // the same light-bg + colored-border language as the badges above. The
+    // summary (the plain paragraph right after the meta line, before any
+    // labeled field) gets the same neutral gray as the Remediation badge.
     let el = bq.nextElementSibling;
+    let sawSummary = false;
     while (el && el.tagName !== 'H3') {
       const text = el.textContent || '';
       if (/^Threat model:/i.test(text)) {
         el.classList.add('pm-box', 'pm-box-threat');
       } else if (/^Trade-offs:/i.test(text)) {
         el.classList.add('pm-box', 'pm-box-tradeoff');
+      } else if (!sawSummary && el.tagName === 'P') {
+        el.classList.add('pm-box', 'pm-box-summary');
+        sawSummary = true;
       }
       el = el.nextElementSibling;
     }
