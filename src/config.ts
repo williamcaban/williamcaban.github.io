@@ -28,14 +28,14 @@ export const SITE = {
   // Navigation
   nav: [
     { text: 'Home', link: '/', key: 'home' },
-    { text: 'Research', link: '/research', key: 'research' },
+    { text: 'Research', link: '/publications', key: 'research' },
     { text: 'News', link: '/news', key: 'news' },
     { text: 'Search', link: '/search', key: 'search' },
   ],
 
   // Custom Pages (Appended after the built-in nav items)
   customPages: [
-    { text: 'PM Briefing', link: '/pm-briefing', key: 'pm-briefing' },
+    { text: 'Safety & Evals Briefing', link: '/pm-briefing', key: 'pm-briefing' },
   ],
   
   // i18n Config
