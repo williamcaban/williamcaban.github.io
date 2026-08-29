@@ -33,9 +33,106 @@ const { Content } = await render(post);
         <h1 class="text-4xl font-bold text-gray-900">{post.data.title}</h1>
       </header>
 
-      <div class="prose prose-blue max-w-none text-gray-700">
+      <div class="prose prose-blue max-w-none text-gray-700 pm-findings">
         <Content />
       </div>
     </article>
   </div>
 </Layout>
+
+<style>
+  /* Each finding is "### N. Title" followed by a "> **Label:** value · ..."
+     blockquote (the meta line) and then plain prose paragraphs. Style that
+     shape as a report-card: a bordered heading with breathing room, and the
+     meta line rendered as a pill row instead of an italic quote. */
+  .pm-findings :global(h3) {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+  }
+  .pm-findings :global(h3:first-of-type) {
+    margin-top: 1.5rem;
+    padding-top: 0;
+    border-top: none;
+  }
+  .pm-findings :global(h3 + blockquote) {
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0;
+    border: none;
+    font-style: normal;
+  }
+  .pm-findings :global(h3 + blockquote p) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+  }
+  .pm-findings :global(.pm-badge) {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.3em;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-width: 1px;
+    white-space: nowrap;
+  }
+  .pm-findings :global(.pm-badge-label) {
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    opacity: 0.7;
+    font-weight: 600;
+    font-size: 0.65rem;
+  }
+</style>
+
+<script>
+  // Progressive enhancement only: turns the "**Label:** value · **Label:** value"
+  // meta-line blockquote right after each finding's h3 into a row of colored
+  // pill badges. If this script fails to run for any reason, the blockquote
+  // still reads fine as plain bold-labeled text — no content is hidden by it.
+  function colorFor(label: string, value: string) {
+    const v = value.toLowerCase();
+    if (label.toLowerCase().startsWith('risk')) {
+      if (v.includes('critical')) return 'pm-badge bg-red-50 text-red-700 border-red-200';
+      if (v.includes('high')) return 'pm-badge bg-orange-50 text-orange-700 border-orange-200';
+      if (v.includes('medium')) return 'pm-badge bg-amber-50 text-amber-700 border-amber-200';
+      if (v.includes('low')) return 'pm-badge bg-emerald-50 text-emerald-700 border-emerald-200';
+    }
+    if (label.toLowerCase().startsWith('priority')) {
+      if (v.includes('reactive')) return 'pm-badge bg-purple-50 text-purple-700 border-purple-200';
+      if (v.includes('proactive')) return 'pm-badge bg-blue-50 text-blue-700 border-blue-200';
+    }
+    return 'pm-badge bg-gray-50 text-gray-700 border-gray-200';
+  }
+
+  document.querySelectorAll('.pm-findings h3 + blockquote > p').forEach((p) => {
+    const html = p.innerHTML;
+    // Split on the middle-dot separator the prompt is instructed to use.
+    const segments = html.split(/\s*·\s*/);
+    const frag = document.createDocumentFragment();
+    let matchedAny = false;
+    for (const seg of segments) {
+      const m = seg.match(/^<strong>([^<:]+):?<\/strong>\s*(.*)$/s);
+      if (!m) continue;
+      matchedAny = true;
+      const [, label, value] = m;
+      const span = document.createElement('span');
+      span.className = colorFor(label, value);
+      const labelSpan = document.createElement('span');
+      labelSpan.className = 'pm-badge-label';
+      labelSpan.textContent = label;
+      span.appendChild(labelSpan);
+      const valueSpan = document.createElement('span');
+      valueSpan.innerHTML = value;
+      span.appendChild(valueSpan);
+      frag.appendChild(span);
+    }
+    if (matchedAny) {
+      p.innerHTML = '';
+      p.appendChild(frag);
+    }
+  });
+</script>
