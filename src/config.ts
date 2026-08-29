@@ -4,14 +4,14 @@ export const SITE = {
   website: 'https://williamcaban.github.io/',
   author: 'William Caban',
   description: 'A lightweight, modern static website template for academic labs and scholars.',
-  title: 'AI Daily Insights',
+  title: 'AI Safety & Evals Insights',
   ogImage: 'astropaper-og.jpg',
   lightAndDarkMode: true,
   postPerPage: 3,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
-  
+
   // Lab Info
-  labName: 'AI Daily Insights',
+  labName: 'AI Safety & Evals Insights',
   university: 'by William Caban',
   logo: '/assets/logo-real.svg', // Logo path
   avatar: '/assets/logo-real.svg', // Avatar for SEO/Schema
@@ -28,15 +28,14 @@ export const SITE = {
   // Navigation
   nav: [
     { text: 'Home', link: '/', key: 'home' },
-    { text: 'Research', link: '/publications', key: 'research' },
-    { text: 'News', link: '/news', key: 'news' },
+    { text: 'Publications', link: '/publications', key: 'research' },
+    { text: 'Daily Briefing', link: '/news', key: 'news' },
+    { text: 'Weekly AI Safety Briefing', link: '/pm-briefing', key: 'pm-briefing' },
     { text: 'Search', link: '/search', key: 'search' },
   ],
 
   // Custom Pages (Appended after the built-in nav items)
-  customPages: [
-    { text: 'Safety & Evals Briefing', link: '/pm-briefing', key: 'pm-briefing' },
-  ],
+  customPages: [],
   
   // i18n Config
   i18n: {

@@ -33,6 +33,20 @@ const { Content } = await render(post);
         <h1 class="text-4xl font-bold text-gray-900">{post.data.title}</h1>
       </header>
 
+      <details class="pm-legend">
+        <summary>How to read the Risk, Remediation, Priority &amp; NIST RMF labels</summary>
+        <dl>
+          <dt>Risk</dt>
+          <dd>Impact × Likelihood, each scored 1–5. Bands: 1–6 Low, 7–12 Medium, 13–19 High, 20–25 Critical.</dd>
+          <dt>Remediation Type</dt>
+          <dd>Data Filter, Prompt/Guardrail, Fine-tuning/RLHF, Eval-Pipeline Change, Human-in-the-loop/Process, or Other.</dd>
+          <dt>Priority</dt>
+          <dd><strong>Proactive</strong> — get ahead of it before it's exploited in production. <strong>Reactive</strong> — an incident or observed failure has already occurred and needs immediate attention.</dd>
+          <dt>NIST RMF</dt>
+          <dd><strong>Govern</strong> (policy &amp; accountability), <strong>Map</strong> (context &amp; risk identification), <strong>Measure</strong> (testing &amp; evaluation), <strong>Manage</strong> (mitigation &amp; response) — from the NIST AI Risk Management Framework.</dd>
+        </dl>
+      </details>
+
       <div class="prose prose-blue max-w-none text-gray-700 pm-findings">
         <Content />
       </div>
@@ -61,6 +75,15 @@ const { Content } = await render(post);
     padding: 0;
     border: none;
     font-style: normal;
+    quotes: none;
+  }
+  /* Tailwind Typography auto-adds open/close quote marks via ::before/::after
+     on a blockquote's first/last paragraph — with a single <p> inside, both
+     land on the same element. Kill them; this blockquote is a stat strip,
+     not a quotation. */
+  .pm-findings :global(h3 + blockquote p::before),
+  .pm-findings :global(h3 + blockquote p::after) {
+    content: none;
   }
   .pm-findings :global(h3 + blockquote p) {
     display: flex;
@@ -86,6 +109,59 @@ const { Content } = await render(post);
     font-weight: 600;
     font-size: 0.65rem;
   }
+
+  /* Threat model / Trade-offs paragraphs, boxed in the same light-bg +
+     colored-border language as the badges, so each field type is visually
+     distinct at a glance while reading down the card. */
+  .pm-findings :global(.pm-box) {
+    padding: 0.85rem 1.1rem;
+    border-radius: 0.6rem;
+    border-width: 1px;
+  }
+  .pm-findings :global(.pm-box-threat) {
+    background-color: #eff6ff;
+    border-color: #bfdbfe;
+  }
+  .pm-findings :global(.pm-box-threat > strong:first-child) {
+    color: #1d4ed8;
+  }
+  .pm-findings :global(.pm-box-tradeoff) {
+    background-color: #fffbeb;
+    border-color: #fde68a;
+  }
+  .pm-findings :global(.pm-box-tradeoff > strong:first-child) {
+    color: #b45309;
+  }
+
+  .pm-legend {
+    margin-bottom: 2rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.6rem;
+    padding: 0.85rem 1.1rem;
+    background-color: #fafafa;
+  }
+  .pm-legend summary {
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+  }
+  .pm-legend dl {
+    margin-top: 0.85rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.4rem 1rem;
+    font-size: 0.875rem;
+    color: #4b5563;
+  }
+  .pm-legend dt {
+    font-weight: 600;
+    color: #111827;
+    white-space: nowrap;
+  }
+  .pm-legend dd {
+    margin: 0;
+  }
 </style>
 
 <script>
@@ -108,31 +184,49 @@ const { Content } = await render(post);
     return 'pm-badge bg-gray-50 text-gray-700 border-gray-200';
   }
 
-  document.querySelectorAll('.pm-findings h3 + blockquote > p').forEach((p) => {
-    const html = p.innerHTML;
-    // Split on the middle-dot separator the prompt is instructed to use.
-    const segments = html.split(/\s*·\s*/);
-    const frag = document.createDocumentFragment();
-    let matchedAny = false;
-    for (const seg of segments) {
-      const m = seg.match(/^<strong>([^<:]+):?<\/strong>\s*(.*)$/s);
-      if (!m) continue;
-      matchedAny = true;
-      const [, label, value] = m;
-      const span = document.createElement('span');
-      span.className = colorFor(label, value);
-      const labelSpan = document.createElement('span');
-      labelSpan.className = 'pm-badge-label';
-      labelSpan.textContent = label;
-      span.appendChild(labelSpan);
-      const valueSpan = document.createElement('span');
-      valueSpan.innerHTML = value;
-      span.appendChild(valueSpan);
-      frag.appendChild(span);
+  document.querySelectorAll('.pm-findings h3').forEach((h3) => {
+    const bq = h3.nextElementSibling;
+    if (!bq || bq.tagName !== 'BLOCKQUOTE') return;
+    const p = bq.querySelector(':scope > p');
+    if (p) {
+      const html = p.innerHTML;
+      // Split on the middle-dot separator the prompt is instructed to use.
+      const segments = html.split(/\s*·\s*/);
+      const frag = document.createDocumentFragment();
+      let matchedAny = false;
+      for (const seg of segments) {
+        const m = seg.match(/^<strong>([^<:]+):?<\/strong>\s*(.*)$/s);
+        if (!m) continue;
+        matchedAny = true;
+        const [, label, value] = m;
+        const span = document.createElement('span');
+        span.className = colorFor(label, value);
+        const labelSpan = document.createElement('span');
+        labelSpan.className = 'pm-badge-label';
+        labelSpan.textContent = label;
+        span.appendChild(labelSpan);
+        const valueSpan = document.createElement('span');
+        valueSpan.innerHTML = value;
+        span.appendChild(valueSpan);
+        frag.appendChild(span);
+      }
+      if (matchedAny) {
+        p.innerHTML = '';
+        p.appendChild(frag);
+      }
     }
-    if (matchedAny) {
-      p.innerHTML = '';
-      p.appendChild(frag);
+
+    // Box the Threat model / Trade-offs paragraphs that follow, in the same
+    // light-bg + colored-border language as the badges above.
+    let el = bq.nextElementSibling;
+    while (el && el.tagName !== 'H3') {
+      const text = el.textContent || '';
+      if (/^Threat model:/i.test(text)) {
+        el.classList.add('pm-box', 'pm-box-threat');
+      } else if (/^Trade-offs:/i.test(text)) {
+        el.classList.add('pm-box', 'pm-box-tradeoff');
+      }
+      el = el.nextElementSibling;
     }
   });
 </script>

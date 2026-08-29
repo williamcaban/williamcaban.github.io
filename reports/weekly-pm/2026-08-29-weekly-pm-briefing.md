@@ -1,5 +1,5 @@
 ---
-title: "Weekly AI Safety & Evals Briefing — Week of August 22, 2026"
+title: "Weekly AI Safety & Evals Briefing — Week of August 22, 2026 – August 28, 2026"
 description: "Autonomous agent containment failure enters the enterprise threat model as research proves per-step guardrails don't compose into multi-step safety guarantees."
 weekOf: "2026-08-22"
 tags: [ai-safety-pm, evals, product-strategy]
