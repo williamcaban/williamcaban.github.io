@@ -42,3 +42,4 @@ coverage/
 
 # Ignore generated content
 src/content/blog/
+src/content/weekly-pm/

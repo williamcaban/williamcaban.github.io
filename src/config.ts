@@ -35,7 +35,7 @@ export const SITE = {
 
   // Custom Pages (Appended after the built-in nav items)
   customPages: [
-    // Example: { text: 'Alumni', link: '/alumni', key: 'alumni' }
+    { text: 'PM Briefing', link: '/pm-briefing', key: 'pm-briefing' },
   ],
   
   // i18n Config

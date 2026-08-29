@@ -31,7 +31,9 @@
     "build": "npm run sync && npm run import-bibtex && astro build && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "sync": "node scripts/sync-reports.mjs",
+    "sync": "npm run sync:daily && npm run sync:weekly",
+    "sync:daily": "node scripts/sync-reports.mjs",
+    "sync:weekly": "node scripts/sync-weekly-briefing.mjs",
     "import-bibtex": "node scripts/import-bibtex.js",
     "lint": "astro check"
   },

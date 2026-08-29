@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('weeklyPmBriefing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const excerpt = (body: string) =>
+  body
+    .replace(/^#{1,6}\s+.*$/gm, '')
+    .replace(/[*_`>\[\]|]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 200);
+---
+
+<Layout title="PM Briefing">
+  <div class="max-w-4xl mx-auto px-4 py-12 sm:py-20">
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Weekly AI Safety & Evals Briefing</h1>
+      <p class="text-gray-600">A weekly briefing for Product Managers, bridging AI safety research and news with concrete evaluation metrics and roadmap priorities.</p>
+    </div>
+
+    <div class="border-l-2 border-gray-100 pl-8 space-y-12">
+      {posts.map(post => (
+        <div class="relative">
+          <span class="absolute -left-[37px] top-1.5 w-4 h-4 rounded-full bg-blue-100 border-2 border-white ring-1 ring-blue-600"></span>
+          <time class="block text-sm text-gray-500 mb-2">{post.data.date.toISOString().split('T')[0]}</time>
+          <h2 class="text-xl font-bold text-gray-900 mb-2">
+            <a href={`/pm-briefing/${post.id}`} class="hover:text-blue-600 transition-colors">{post.data.title}</a>
+          </h2>
+          <p class="text-gray-600 mb-2">{post.data.description || excerpt(post.body || '')}</p>
+          <a href={`/pm-briefing/${post.id}`} class="text-sm font-medium text-blue-600 hover:text-blue-700">
+            Read more →
+          </a>
+        </div>
+      ))}
+
+      {posts.length === 0 && (
+        <p class="text-gray-500 italic">No briefings yet.</p>
+      )}
+    </div>
+  </div>
+</Layout>

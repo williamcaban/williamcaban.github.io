@@ -87,10 +87,23 @@ const blog = defineCollection({
   }),
 });
 
+const weeklyPmBriefing = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/weekly-pm" }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    weekOf: z.coerce.date().optional(),
+    description: z.string().optional(),
+    tags: z.array(z.string()).default(['ai-safety-pm', 'evals']),
+    draft: z.boolean().default(false),
+  }),
+});
+
 export const collections = {
   publications,
   books,
   research,
   patents,
   blog,
+  weeklyPmBriefing,
 };
