@@ -87,6 +87,18 @@ const blog = defineCollection({
   }),
 });
 
+const writing = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/writing" }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    description: z.string().optional(),
+    tags: z.array(z.string()).default([]),
+    originalUrl: z.string().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
 const weeklyPmBriefing = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/weekly-pm" }),
   schema: z.object({
@@ -106,4 +118,5 @@ export const collections = {
   patents,
   blog,
   weeklyPmBriefing,
+  writing,
 };

@@ -31,6 +31,7 @@ export const SITE = {
     { text: 'Publications', link: '/publications', key: 'research' },
     { text: 'Daily Briefing', link: '/news', key: 'news' },
     { text: 'Weekly AI Safety Briefing', link: '/pm-briefing', key: 'pm-briefing' },
+    { text: 'Writing', link: '/writing', key: 'writing' },
     { text: 'Search', link: '/search', key: 'search' },
   ],
 
