@@ -16,6 +16,7 @@ export const SITE = {
   logo: '/assets/logo-real.svg', // Logo path
   avatar: '/assets/logo-real.svg', // Avatar for SEO/Schema
   email: 'contact@lab.edu', // Contact email for Join Us page
+  linkedin: 'https://www.linkedin.com/in/williamcaban/',
 
   // Hero Section (Home Page) - Main content does not need to be translated for 8 languages by default
   hero: {

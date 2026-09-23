@@ -2,7 +2,7 @@
 import { SITE, LOGO_IMAGE } from '../config';
 import {
   Menu, X, Globe, ChevronDown, Check, Moon, Sun,
-  Home, BookOpen, Newspaper, Sparkles, Search
+  Home, BookOpen, Newspaper, Sparkles, Search, Linkedin
 } from 'lucide-react';
 
 import { ui, defaultLang, languages } from '../i18n/ui';
@@ -103,6 +103,16 @@ const getIcon = (key: string) => iconMap[key] || Sparkles;
             </div>
           </div>
         )}
+
+        <a
+          href={SITE.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-full transition-colors"
+          aria-label="Follow on LinkedIn"
+        >
+          <Linkedin className="w-5 h-5" />
+        </a>
       </nav>
 
       <!-- Mobile Menu Button -->
@@ -192,7 +202,16 @@ const getIcon = (key: string) => iconMap[key] || Sparkles;
     </nav>
 
     <!-- Footer Info -->
-    <div class="p-8 bg-gray-50 shrink-0 border-t border-gray-200">
+    <div class="p-8 bg-gray-50 shrink-0 border-t border-gray-200 flex flex-col items-center gap-4">
+       <a
+         href={SITE.linkedin}
+         target="_blank"
+         rel="noopener noreferrer"
+         class="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
+       >
+         <Linkedin className="w-4 h-4" />
+         Follow on LinkedIn
+       </a>
        <p class="text-sm text-gray-500 font-medium text-center">© {new Date().getFullYear()} {SITE.labName}</p>
     </div>
   </div>
