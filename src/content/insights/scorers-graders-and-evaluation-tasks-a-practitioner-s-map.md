@@ -5,7 +5,7 @@ description: "There is a terminology problem in AI evaluation that slows down al
 originalUrl: "https://medium.com/@william.caban/scorers-graders-and-evaluation-tasks-a-practitioners-map-1fd996c1e418"
 ---
 
-![AI Practitioner’s Map to Scorers, Graders and Evaluation Tasks](/assets/writing/scorers-graders-and-evaluation-tasks-a-practitioner-s-map/image-1.png)
+![AI Practitioner’s Map to Scorers, Graders and Evaluation Tasks](/assets/insights/scorers-graders-and-evaluation-tasks-a-practitioner-s-map/image-1.png)
 
 *AI Practitioner’s Map to Scorers, Graders and Evaluation Tasks*
 

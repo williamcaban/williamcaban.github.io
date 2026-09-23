@@ -4,7 +4,7 @@ import { getCollection, render } from 'astro:content';
 import { Calendar, ArrowLeft, ExternalLink } from 'lucide-react';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('writing', ({ data }) => !data.draft);
+  const posts = await getCollection('insights', ({ data }) => !data.draft);
   return posts.map((post) => ({
     params: { id: post.id },
     props: { post },
@@ -17,9 +17,9 @@ const { Content } = await render(post);
 
 <Layout title={post.data.title}>
   <div class="max-w-4xl mx-auto px-4 py-12 sm:py-20">
-    <a href="/writing" class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 mb-8">
+    <a href="/insights" class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 mb-8">
       <ArrowLeft className="w-4 h-4" />
-      <span data-i18n-key="writing.title">Writing</span>
+      <span data-i18n-key="insights.title">Insights</span>
     </a>
 
     <article>

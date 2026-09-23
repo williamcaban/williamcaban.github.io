@@ -5,7 +5,7 @@ description: "Why “train” & “test” datasets"
 originalUrl: "https://medium.com/@william.caban/split-to-succeed-crafting-train-test-datasets-for-optimal-fine-tuning-of-an-llms-6c38922c3c74"
 ---
 
-![Photo by Anthony Intraversato on Unsplash](/assets/writing/split-to-succeed-crafting-train-test-datasets-for-optimal-fine-tuning-of-an-llms/image-1.jpg)
+![Photo by Anthony Intraversato on Unsplash](/assets/insights/split-to-succeed-crafting-train-test-datasets-for-optimal-fine-tuning-of-an-llms/image-1.jpg)
 
 *Photo by Anthony Intraversato on Unsplash*
 
@@ -13,9 +13,9 @@ originalUrl: "https://medium.com/@william.caban/split-to-succeed-crafting-train-
 
 When fine-tuning or training a model, a crucial practice is monitoring the learning curve to determine if it is overfitting or diverging too much. To do this, we calculate the accuracy and loss to determine the model’s performance. (If you like to learn more about learning curves, read [A Deep Dive Into Learning Curves in Machine Learning](https://wandb.ai/mostafaibrahim17/ml-articles/reports/A-Deep-Dive-Into-Learning-Curves-in-Machine-Learning--Vmlldzo0NjA1ODY0).)
 
-To calculate these metrics, we need a train and a test dataset. When using a custom dataset ([Structuring Datasets for Fine-Tuning an LLM](/writing/structuring-datasets-for-fine-tuning-an-llm)), we must split the dataset into a train and a test dataset. The idea is to have a dataset the model did not see during the training or fine-tuning cycles. Calculating the accuracy helps us identify when the model overfits the training dataset and when the accuracy curve of the test dataset starts diverging too much from the accuracy curve of the training dataset.
+To calculate these metrics, we need a train and a test dataset. When using a custom dataset ([Structuring Datasets for Fine-Tuning an LLM](/insights/structuring-datasets-for-fine-tuning-an-llm)), we must split the dataset into a train and a test dataset. The idea is to have a dataset the model did not see during the training or fine-tuning cycles. Calculating the accuracy helps us identify when the model overfits the training dataset and when the accuracy curve of the test dataset starts diverging too much from the accuracy curve of the training dataset.
 
-![A learning curve of accuracy over epochs illustrating the point for early stopping.](/assets/writing/split-to-succeed-crafting-train-test-datasets-for-optimal-fine-tuning-of-an-llms/image-2.png)
+![A learning curve of accuracy over epochs illustrating the point for early stopping.](/assets/insights/split-to-succeed-crafting-train-test-datasets-for-optimal-fine-tuning-of-an-llms/image-2.png)
 
 *A learning curve of accuracy over epochs illustrating the point for early stopping.*
 

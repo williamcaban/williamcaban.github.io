@@ -5,13 +5,13 @@ description: "An analogous color harmony palette is the most stable, consisting 
 originalUrl: "https://medium.com/@william.caban/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes-13a90dd1fea2"
 ---
 
-![Photo by Richard Bell on Unsplash](/assets/writing/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-1.jpg)
+![Photo by Richard Bell on Unsplash](/assets/insights/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-1.jpg)
 
 *Photo by Richard Bell on Unsplash*
 
 An [analogous color harmony palette](https://en.wikipedia.org/wiki/Harmony_%28color%29#Analogous_colors) is the most stable, consisting of a main color and two or more nearby colors. I have found that granite-7b-lab struggles to solve this task, while models like mistral-7b solve it using different hues rather than just adjusting tints or shade. ([See an art blog for a refresher on hues, tings, and shades](https://www.kategreendesign.com/kate-green-art-information-blog/what-does-colour-hue-value-tone-shade-and-tint-mean-when-talking-about-a-painting))
 
-![Image by author.](/assets/writing/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-2.png)
+![Image by author.](/assets/insights/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-2.png)
 
 *Image by author.*
 
@@ -21,9 +21,9 @@ I’ve been looking for an opportunity to fine-tune a model the “hard way” u
 
 Once again, Hugging Face datasets come to the rescue. I found the [caperaven/color\_swatch](https://huggingface.co/datasets/caperaven/color_swatch) dataset, licensed under Apache-2.0. It is a small dataset with 610 samples, but it should work. Because of the small dataset, we need to fine-tune the model for more cycles.
 
-As I discussed in [Split to Succeed](/writing/split-to-succeed-crafting-train-test-datasets-for-optimal-fine-tuning-of-an-llms), we must split our dataset on a training and validation set (or train and test dataset). After taking 10% of the samples for the “test” dataset, I have a training dataset with 549 samples and a testing dataset with 61 samples.
+As I discussed in [Split to Succeed](/insights/split-to-succeed-crafting-train-test-datasets-for-optimal-fine-tuning-of-an-llms), we must split our dataset on a training and validation set (or train and test dataset). After taking 10% of the samples for the “test” dataset, I have a training dataset with 549 samples and a testing dataset with 61 samples.
 
-![Image by author.](/assets/writing/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-3.png)
+![Image by author.](/assets/insights/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-3.png)
 
 *Image by author.*
 
@@ -163,7 +163,7 @@ plt.legend(loc='best')
 plt.show()
 ```
 
-![Image by author.](/assets/writing/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-4.png)
+![Image by author.](/assets/insights/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-4.png)
 
 *Image by author.*
 
@@ -175,17 +175,17 @@ The training and validation loss tells us the fine-tuned model has significant i
 
 By creating a visualization, we can see some good results from the fine-tuned model compared to the original model.
 
-![Image by author.](/assets/writing/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-5.png)
+![Image by author.](/assets/insights/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-5.png)
 
 *Image by author.*
 
-![Image by author.](/assets/writing/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-6.png)
+![Image by author.](/assets/insights/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-6.png)
 
 *Image by author.*
 
 As we can see from this visualization, the model is not perfect, which is also expected given the very small training dataset.
 
-![Image by author.](/assets/writing/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-7.png)
+![Image by author.](/assets/insights/creating-gradient-palettes-fine-tuning-granite-7b-for-analogous-gradient-palettes/image-7.png)
 
 *Image by author.*
 

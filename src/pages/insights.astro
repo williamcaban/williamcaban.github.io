@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('writing', ({ data }) => !data.draft))
+const posts = (await getCollection('insights', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const excerpt = (body: string) =>
@@ -14,10 +14,10 @@ const excerpt = (body: string) =>
     .slice(0, 200);
 ---
 
-<Layout title="Writing">
+<Layout title="Insights">
   <div class="max-w-4xl mx-auto px-4 py-12 sm:py-20">
     <div class="mb-12">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4" data-i18n-key="writing.title">Writing</h1>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4" data-i18n-key="insights.title">Insights</h1>
     </div>
 
     <div class="border-l-2 border-gray-100 pl-8 space-y-12">
@@ -26,17 +26,17 @@ const excerpt = (body: string) =>
           <span class="absolute -left-[37px] top-1.5 w-4 h-4 rounded-full bg-blue-100 border-2 border-white ring-1 ring-blue-600"></span>
           <time class="block text-sm text-gray-500 mb-2">{post.data.date.toISOString().split('T')[0]}</time>
           <h2 class="text-xl font-bold text-gray-900 mb-2">
-            <a href={`/writing/${post.id}`} class="hover:text-blue-600 transition-colors">{post.data.title}</a>
+            <a href={`/insights/${post.id}`} class="hover:text-blue-600 transition-colors">{post.data.title}</a>
           </h2>
           <p class="text-gray-600 mb-2">{post.data.description || excerpt(post.body || '')}</p>
-          <a href={`/writing/${post.id}`} class="text-sm font-medium text-blue-600 hover:text-blue-700">
+          <a href={`/insights/${post.id}`} class="text-sm font-medium text-blue-600 hover:text-blue-700">
             Read more →
           </a>
         </div>
       ))}
 
       {posts.length === 0 && (
-        <p class="text-gray-500 italic" data-i18n-key="writing.noPosts">No posts yet.</p>
+        <p class="text-gray-500 italic" data-i18n-key="insights.noPosts">No posts yet.</p>
       )}
     </div>
   </div>

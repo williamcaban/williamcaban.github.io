@@ -5,7 +5,7 @@ description: "Note: This is an experiment. It is not the intended way of using I
 originalUrl: "https://medium.com/@william.caban/instructlab-with-custom-datasets-087712d69741"
 ---
 
-![Photo by Chris Liverani on Unsplash](/assets/writing/instructlab-with-custom-datasets/image-1.jpg)
+![Photo by Chris Liverani on Unsplash](/assets/insights/instructlab-with-custom-datasets/image-1.jpg)
 
 *Photo by Chris Liverani on Unsplash*
 
@@ -21,7 +21,7 @@ originalUrl: "https://medium.com/@william.caban/instructlab-with-custom-datasets
 
 If you have yet to see or use InstructLab, no worries. To get started, check the [InstructLab: From 0 to aligned model using Mac OS](https://youtu.be/Jb5dh3Uzdbw?si=vNAVIP_mno4lNLmH) video from [Grant Shipley](https://www.linkedin.com/in/grantshipley/) or one of his many other demos.
 
-![(source: https://huggingface.co/instructlab/granite-7b-lab with labels added by the author of this blog)](/assets/writing/instructlab-with-custom-datasets/image-2.png)
+![(source: https://huggingface.co/instructlab/granite-7b-lab with labels added by the author of this blog)](/assets/insights/instructlab-with-custom-datasets/image-2.png)
 
 *(source: https://huggingface.co/instructlab/granite-7b-lab with labels added by the author of this blog)*
 
@@ -31,7 +31,7 @@ What better way to learn something than by trying to change it? What good is an 
 
 ## The Challenge
 
-Back in April 2024, I created a dataset (recently uploaded to HugginFace [qna-ocp-4.15](https://huggingface.co/datasets/boricua/qna-ocp-4.15)) to fine-tune a model with OpenShift expertise (see [Structuring Datasets for Fine-Tuning an LLM](/writing/structuring-datasets-for-fine-tuning-an-llm)). Because I have this dataset, I don’t need InstructLab to generate a synthetic dataset, but I still want to use it to fine-tune an LLM. How do we do this?
+Back in April 2024, I created a dataset (recently uploaded to HugginFace [qna-ocp-4.15](https://huggingface.co/datasets/boricua/qna-ocp-4.15)) to fine-tune a model with OpenShift expertise (see [Structuring Datasets for Fine-Tuning an LLM](/insights/structuring-datasets-for-fine-tuning-an-llm)). Because I have this dataset, I don’t need InstructLab to generate a synthetic dataset, but I still want to use it to fine-tune an LLM. How do we do this?
 
 To identify the format expected by the fine-tuning phase of InstructLab, we need to examine the structure of the generated output, which is written to the “generated” directory by default.
 

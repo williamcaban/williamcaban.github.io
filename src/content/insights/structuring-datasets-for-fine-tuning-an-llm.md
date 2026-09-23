@@ -5,13 +5,13 @@ description: "Creating your Dataset"
 originalUrl: "https://medium.com/@william.caban/structuring-datasets-for-fine-tuning-an-llm-8ca15062dd5c"
 ---
 
-![Photo by Joshua Sortino on Unsplash](/assets/writing/structuring-datasets-for-fine-tuning-an-llm/image-1.jpg)
+![Photo by Joshua Sortino on Unsplash](/assets/insights/structuring-datasets-for-fine-tuning-an-llm/image-1.jpg)
 
 *Photo by Joshua Sortino on Unsplash*
 
 ## Creating your Dataset
 
-In the blog [A Journey Through the LLM Fine-tuning Landscape](/writing/a-journey-through-the-llm-fine-tuning-landscape), I covered five standard techniques for fine-tuning a large language model (LLM). By now, you should know which combination of techniques you want to use. The next step is formatting or structuring your proprietary or unique information in the training dataset for the corresponding technique. How do you prepare your training dataset? Which fields should it include? What structure to follow?
+In the blog [A Journey Through the LLM Fine-tuning Landscape](/insights/a-journey-through-the-llm-fine-tuning-landscape), I covered five standard techniques for fine-tuning a large language model (LLM). By now, you should know which combination of techniques you want to use. The next step is formatting or structuring your proprietary or unique information in the training dataset for the corresponding technique. How do you prepare your training dataset? Which fields should it include? What structure to follow?
 
 As you might have guessed by now, “it depends” on your use case and the combination of techniques you want to use.
 
@@ -40,7 +40,7 @@ The success and performance resulting from a fine-tuned model are directly tied 
 
 Before creating a dataset, the capabilities of the model you plan to fine-tune will determine the type of composition the dataset will need: a base or foundation LLM, an instruct LLM, a chat LLM, or another type.
 
-![(Image by author)](/assets/writing/structuring-datasets-for-fine-tuning-an-llm/image-2.png)
+![(Image by author)](/assets/insights/structuring-datasets-for-fine-tuning-an-llm/image-2.png)
 
 *(Image by author)*
 
@@ -81,7 +81,7 @@ The dataset for instruction tuning of an LLM must contain instructions paired wi
 
 Take a look at the [instructions dataset from Alpaca](https://huggingface.co/datasets/tatsu-lab/alpaca). You will notice the “instruction” (yellow), “input” (orange), “output” (green), and “text” (red) fields. In this particular example, the “instruction” column contains examples of user queries with instructions. If the user query involves interpreting certain information, that additional information is in the “input” column. The “output” column teaches the LLM the expected type of reply expected from the prompt. Finally, the “text” field represents the rendered prompt with system instructions containing the user “instructions” and “input”.
 
-![(Image by author)](/assets/writing/structuring-datasets-for-fine-tuning-an-llm/image-3.png)
+![(Image by author)](/assets/insights/structuring-datasets-for-fine-tuning-an-llm/image-3.png)
 
 *(Image by author)*
 
@@ -89,7 +89,7 @@ If you want more details about the format of an entry in this dataset, check the
 
 Another example of an instruction fine-tuning dataset is the [mermaid-flowchart-transformer](https://huggingface.co/datasets/rakitha/mermaid-flowchart-transformer), which is intended to fine-tune a multi-modal LLM to explain or generate a [Mermaid](https://mermaid.js.org/) diagram. There is a derived dataset [mdermaid-flowchart-transformer-moondream-caption](https://huggingface.co/datasets/sroecker/mermaid-flowchart-transformer-moondream-caption), which expands it and makes it suitable for teaching a system to create captions for Mermaid diagrams or to generate a Mermaid diagram (text or image) from a caption.
 
-![(Image by author)](/assets/writing/structuring-datasets-for-fine-tuning-an-llm/image-4.png)
+![(Image by author)](/assets/insights/structuring-datasets-for-fine-tuning-an-llm/image-4.png)
 
 *(Image by author)*
 
@@ -124,7 +124,7 @@ While the Prompt Tuning technique is efficient, one drawback to remembering and 
 
 Sequential fine-tuning is the process of gradually adapting a model to a more specialized task by using multiple datasets in a specific order. This involves starting with more general tasks and then fine-tuning the model with datasets more specific to the particular use case. It is important to note that sequential fine-tuning is about the order in which the model is further fine-tuned, rather than the specific format of the dataset.
 
-![(Image by author)](/assets/writing/structuring-datasets-for-fine-tuning-an-llm/image-5.png)
+![(Image by author)](/assets/insights/structuring-datasets-for-fine-tuning-an-llm/image-5.png)
 
 *(Image by author)*
 

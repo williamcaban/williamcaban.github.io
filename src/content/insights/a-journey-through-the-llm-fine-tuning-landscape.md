@@ -5,7 +5,7 @@ description: "The Beginning"
 originalUrl: "https://medium.com/@william.caban/a-journey-through-the-llm-fine-tuning-landscape-67df7939871f"
 ---
 
-![Photo by Clay Banks on Unsplash](/assets/writing/a-journey-through-the-llm-fine-tuning-landscape/image-1.jpg)
+![Photo by Clay Banks on Unsplash](/assets/insights/a-journey-through-the-llm-fine-tuning-landscape/image-1.jpg)
 
 *Photo by Clay Banks on Unsplash*
 

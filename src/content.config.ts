@@ -87,8 +87,8 @@ const blog = defineCollection({
   }),
 });
 
-const writing = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/writing" }),
+const insights = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/insights" }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
@@ -118,5 +118,5 @@ export const collections = {
   patents,
   blog,
   weeklyPmBriefing,
-  writing,
+  insights,
 };
