@@ -30,7 +30,7 @@ export const SITE = {
     { text: 'Home', link: '/', key: 'home' },
     { text: 'Publications', link: '/publications', key: 'research' },
     { text: 'Daily Briefing', link: '/news', key: 'news' },
-    { text: 'Weekly AI Safety Briefing', link: '/pm-briefing', key: 'pm-briefing' },
+    { text: 'Weekly PM Briefing', link: '/pm-briefing', key: 'pm-briefing' },
     { text: 'Writing', link: '/writing', key: 'writing' },
     { text: 'Search', link: '/search', key: 'search' },
   ],
