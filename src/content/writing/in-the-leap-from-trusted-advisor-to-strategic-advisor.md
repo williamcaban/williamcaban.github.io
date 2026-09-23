@@ -3,6 +3,7 @@ title: "In the Leap From Trusted Advisor to Strategic Advisor"
 date: 2018-10-25T03:35:39.750Z
 description: "Towards Long Term Success"
 originalUrl: "https://medium.com/@william.caban/in-the-leap-from-trusted-advisor-to-strategic-advisor-b1caec190472"
+draft: true
 ---
 
 ### **Towards Long Term Success**

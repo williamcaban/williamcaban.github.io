@@ -21,7 +21,12 @@ Let’s fix the terminology.
 
 Modern AI evaluation practice uses four distinct concepts that compose into each other:
 
-[View this snippet on GitHub Gist](https://gist.github.com/williamcaban/61dbf9177e68a8f52e0a899bb6c03da0)
+| Concept | The Question It Answers | Returns | Example |
+|---|---|---|---|
+| **Scorer** | HOW do I compute this specific value? (deterministic) | A number or pass/fail | Exact match, F1, BERTScore, ROUGE |
+| **Grader** | HOW do I assess this against a rubric? (qualitative + explanatory) | Score + explanation | LLM-as-a-Judge with faithfulness rubric, model_graded_qa |
+| **Evaluation Task** | WHAT am I measuring, end-to-end? | Structured result from one or more scorers/graders | Hallucination detection protocol |
+| **Evaluation Suite / Collection** | WHICH tasks apply to my use case? | Aggregate quality signal | RAG faithfulness suite for healthcare Q&A |
 
 These are not synonyms. They are layers. **Scorers** and **graders** compose into **tasks**. **Tasks** compose into **suites**. Confusing them is like confusing a function, an algorithm, and an application — each level of abstraction serves a different purpose.
 

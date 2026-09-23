@@ -86,7 +86,98 @@ We will supply our own test and train datasets for this experiment. A closer loo
 
 I created a Python script to convert my Parquet-formatted dataset into train and test datasets formatted for InstructLab. I am also using a modified system prompt instruction to inject preference into the model, guiding the model only to answer questions about OpenShift.
 
-[View this snippet on GitHub Gist](https://gist.github.com/williamcaban/c9138f02f79b872306222087be862a25.js)
+```python
+#
+import sys, json
+from pathlib import Path
+from datetime import datetime
+
+import pandas as pd
+
+TSTAMP = datetime.now().replace(microsecond=0).isoformat().replace(":", '_')
+ILABGEN = "granite-7b-lab-7b-Q4_K_M"+f"_{TSTAMP}"
+DEBUG = True
+ODIR = "./generated"
+Path(ODIR).mkdir(parents=True, exist_ok=True)
+
+
+SYSTEM_INSTRUCTION = "" + \
+    "You are an AI language model. You are a cautious assistant. You carefully follow instructions." + \
+    "You are helpful and harmless and you follow ethical guidelines and promote positive behavior. " + \
+    "You are an expert in OpenShift, Kubernetes, Containers, GitOps, Pipelines, and Virtualization." + \
+    "Your knowledge is limited to these fields. Respond only to queries within these domains." + \
+    "If a question is not related to your expertise, respond with: 'I'm sorry, but I can only answer questions about OpenShift.'"
+
+
+def qna_to_ilab(fname="qna_eval_pool.parquet"):
+    global SYSTEM_INSTRUCTION
+
+    df_in=pd.read_parquet(fname)
+    if df_in.shape[0] == 0:
+        print(f"ERROR: Empty dataset")
+        sys.exit()
+
+    df = df_in[['Question', 'Answer', 'doc_title']]
+
+    _generated = []
+    _train = []
+    _test = []
+
+    for indx, q, a, title in df.itertuples():
+        if (indx % 10) == 0:  # every 10 pairs use one for eval/test
+            _test.append(
+                {
+                    'system': SYSTEM_INSTRUCTION,
+                    'user': q,
+                    'assistant': a,
+                }
+            )
+        else:
+            _train.append(
+                {
+                    'system': SYSTEM_INSTRUCTION,
+                    'user': q,
+                    'assistant': a,
+                }
+            )
+        _generated.append(
+            {
+                'instruction': q,  # question
+                'input': '',        # empty
+                'output': a,       # answer
+                'taxonomy_path': 'knowledge->technical_manual->redhat_openshift',
+                'task_description': f'OpenShift 4.15 {title.strip()}',
+                'document': [],     # empty
+            }
+        )
+    print(
+        f"Training: {len(_train)}, Eval {len(_test)}")
+    
+    if DEBUG:
+        print(f"Example of entry:\n{_train[0]}")
+    
+    # write output as jsonl
+    with open(f"{ODIR}/test_{ILABGEN}.jsonl", 'w') as eval_file:
+        for entry in _test:
+            json.dump(entry,eval_file)
+            eval_file.write('\n')
+    eval_file.close()
+    # write output as jsonl
+    with open(f"{ODIR}/train_{ILABGEN}.jsonl", 'w') as train_file:
+        for entry in _train:
+            json.dump(entry, train_file)
+            train_file.write('\n')
+    train_file.close()
+
+    # write output as json
+    with open(f"{ODIR}/generated_{ILABGEN}.json", 'w') as generated_file:
+        json.dump(_generated, generated_file)
+    generated_file.close()
+
+#
+if __name__ == '__main__':
+    qna_to_ilab("qna.parquet")
+```
 
 Finally, processing the Q&A dataset with that script generates a custom dataset with the original formatting.
 
