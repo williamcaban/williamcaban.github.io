@@ -19,7 +19,7 @@ export const SITE = {
 
   // Hero Section (Home Page) - Main content does not need to be translated for 8 languages by default
   hero: {
-    title: 'Research, analysis & news on Trustworthy AI: safety, security, and evaluation',
+    title: 'Advancing Trustworthy AI: research and insights on AI safety, security, and evaluation',
     subtitle: 'Changing the world one “token” at a time.',
     action: 'View Publications', // Optional call to action text
     image: heroImage, // Hero image path
