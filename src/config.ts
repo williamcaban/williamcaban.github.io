@@ -4,14 +4,14 @@ export const SITE = {
   website: 'https://williamcaban.github.io/',
   author: 'William Caban',
   description: 'A lightweight, modern static website template for academic labs and scholars.',
-  title: 'AI Safety & Evals Insights',
+  title: 'Trustworthy AI Insights',
   ogImage: 'astropaper-og.jpg',
   lightAndDarkMode: true,
   postPerPage: 3,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
 
   // Lab Info
-  labName: 'AI Safety & Evals Insights',
+  labName: 'Trustworthy AI Insights',
   university: 'by William Caban',
   logo: '/assets/logo-real.svg', // Logo path
   avatar: '/assets/logo-real.svg', // Avatar for SEO/Schema
