@@ -10,7 +10,7 @@ tags:
   - ai-safety
 ---
 
-*Draft v0.2. Personal view, not a Red Hat position. Every number below comes from a paper linked at the end; where a result rests on a single study or a handful of trials, I say so.*
+*Personal view, not my employer's position. Every number below comes from a paper linked at the end; where a result rests on a single study or a handful of trials, I say so.*
 
 Coding agents have pushed the cost of writing software toward zero. A team that used to buy a tool can have an agent build a tailored one in a week, scoped to exactly what it needs and nothing else.
 
