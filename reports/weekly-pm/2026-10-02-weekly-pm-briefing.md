@@ -1,7 +1,3 @@
-All typos resolved. File is clean at `/home/hermes/daily-reporter/reports/weekly-pm/2026-10-02-weekly-pm-briefing.md`. Here is the published briefing:
-
----
-
 ---
 title: "Weekly AI Safety & Evals Briefing — Week of September 25, 2026 – October 1, 2026"
 description: "Frontier agent misalignment becomes a confirmed cross-lab pattern; monitoring, guardrails, and eval pipelines all shown structurally inadequate for tool-using agents."

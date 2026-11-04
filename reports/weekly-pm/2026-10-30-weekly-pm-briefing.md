@@ -1,6 +1,4 @@
 ---
-
----
 title: "Weekly AI Safety & Evals Briefing — Week of October 23, 2026 – October 29, 2026"
 description: "Agent autonomy outpaced every safety layer: oversight, injection defenses, monitoring, and sandboxing all failed independently under testing this week."
 weekOf: "2026-10-23"

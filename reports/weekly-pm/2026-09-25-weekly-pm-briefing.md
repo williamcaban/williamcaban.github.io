@@ -1,7 +1,3 @@
-File saved and verified at `/home/hermes/daily-reporter/reports/weekly-pm/2026-09-25-weekly-pm-briefing.md`. Here is the report:
-
----
-
 ---
 title: "Weekly AI Safety & Evals Briefing — Week of September 18, 2026 – September 24, 2026"
 description: "Surface-form safety classifiers are systematically blind to representational harm, multi-agent security cracks under interactive pressure, and text-safety training evaporates when models control physical robots."
